@@ -110,6 +110,11 @@ Product nimbolo = new(
 };
 PartitionKey tentsKey = new("gear-camp-tents");
 
+
+//Note
+//- UpsertItem ต้องมี Item เท่านั้น ถ้าไม่มีพัง
+//- ReplaceItemAsync - ถ้มไม่มีใส่เข้าไปใหม่
+
 TransactionalBatch batch = container.CreateTransactionalBatch(tentsKey)
     .UpsertItem<Category>(tents)
     .UpsertItem<Product>(cirroa)
